@@ -8,7 +8,7 @@ export default function Rotas(){
     <Router>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='dogpage' element={<DogPage/>}/>
+        <Route path='/dogpage' element={<DogPage/>}/>
       </Routes>
     </Router>
   )

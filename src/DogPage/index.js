@@ -5,11 +5,14 @@ import * as S from '../Global/style';
 
 export default function Dog(){
   const [dog, setDog] = useState()
+  const [img, setImg] = useState(false)
 
   function getDogs(){
     axios.get('https://dog.ceo/api/breeds/image/random').then((response)=>{
-      console.log(response.data.message)
+      console.log(response) //verificar o caminho da imagem no console
+      console.log(response.data.message) //caminho da imagem no cosole
       setDog(response.data.message)
+      setImg(true)
     })
   }
 
@@ -18,9 +21,9 @@ export default function Dog(){
       <S.BoxDog>
         <Link to='/'><S.BtnHome>Página Inicial</S.BtnHome></Link>
         <S.Figure>
-            <img src={dog} alt="Imagem de doguinho" />
+            {img && <img src={dog} alt="Imagem de doguinho" />}
         </S.Figure>
-        <S.BtnDog onClick={()=>{getDogs()}}>Próximo doginho</S.BtnDog>
+        <S.BtnDog onClick={()=>{getDogs()}}>Clique aqui</S.BtnDog>
       </S.BoxDog>
     </S.DogDiv>
   )
